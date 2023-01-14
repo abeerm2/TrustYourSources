@@ -9,10 +9,10 @@ const BearerToken = 'AAAAAAAAAAAAAAAAAAAAABnelAEAAAAAnDzKf%2BCb0rxd6sqnXbHC7Ejj%
 const endpointUrl = "https://api.twitter.com/2/tweets/search/recent";
 
 //Get Tweets from Twitter API
-const getTweets = async() => {
+const getTweets = async(id) => {
 
     const params = {
-        'query': 'Ukraine',
+        'query': `${id} lang:en`,
         'tweet.fields': 'created_at',
         'expansions': 'author_id'
     }
@@ -39,7 +39,7 @@ const getTweets = async() => {
 //This returns the object to client
 const getTweetAnalysis = async(req, res) => {
     try {
-        let twitterData =await getTweets();
+        let twitterData =await getTweets(req.params.id);
         //res.send(twitterData);
         res.send(await analyze(twitterData));
     } catch (error) {
@@ -58,7 +58,7 @@ const analyze = async(twitterData) =>
 }
 
 //API route 
-app.get('/tweet/', getTweetAnalysis)
+app.get('/api/tweet/:id', getTweetAnalysis)
 app.use(cors());
 app.use(express.json());
 

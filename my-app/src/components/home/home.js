@@ -9,6 +9,7 @@ function Home() {
     }
     return (
         <div className="App">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
           <h1 className="App-header">
             Trust Your Sources
           </h1>
@@ -19,7 +20,7 @@ function Home() {
           </div>
           <div className='body'>
               <input className='search' placeholder='Search Value'></input>
-              <button className='searchBtn'>Search!</button>
+              <button className='searchBtn'><span class="material-symbols-outlined">search</span></button>
           </div>
         </div>
       );

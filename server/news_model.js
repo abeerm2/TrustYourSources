@@ -9,10 +9,12 @@ async function classifyNewsArticles(input) {
         model: "medium",
         taskDescription: "",
         outputIndicator: "",
-        inputs: [input],
+        inputs: input,
         examples: POSITIVE_EXAMPLES.map((positive) => ({text: positive, label: "positive"})).concat(
             NEGATIVE_EXAMPLES.map((negative) => ({text: negative, label: "negative"})))
     })
 
     return response.body.classifications[0];
 }
+
+module.exports = classifyNewsArticles;

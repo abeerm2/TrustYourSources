@@ -16,3 +16,5 @@ exports.classifySocialMedia(input) = async(req,res)=>{
 
     return response.body.classifications[0];
 }
+
+module.exports = classifySocialMedia;

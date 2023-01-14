@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const needle = require("needle");
-
 const app = express();
 dotenv.config();
 const BearerToken = 'AAAAAAAAAAAAAAAAAAAAABnelAEAAAAAnDzKf%2BCb0rxd6sqnXbHC7Ejj%2FQU%3D7ZvQWXbXTCAYhR4IrlXBhGMlILzBlCnIkdIqF1MRso32Kx4RmB';
@@ -59,6 +58,11 @@ const analyze = async(twitterData) =>
 
 //API route 
 app.get('/api/tweet/:id', getTweetAnalysis)
+app.get('/api/cohere/:text', (req, res)=>{
+    const text = req.params.text;
+    const val = coherefn(text)
+    res.send(val)
+})
 app.use(cors());
 app.use(express.json());
 
@@ -70,3 +74,20 @@ app.get('/test', (req,res) => {
 app.listen(3100, ()=>{
     console.log(`Server is runing on port ${3100}`)
 });
+
+const cohere = require('cohere-ai');
+cohere.init('CkDyobTPuxXHETB5lRaIjEQgUntgXTivHbsGQi51');
+function coherefn(input){
+(async () => {
+  const response = await cohere.classify({
+    model: 'small',
+    inputs: [input],
+    examples: [{"text": "Idaho Murders Suspect Felt No Emotion and Little Remorse as a Teen", "label": "negative"}, {"text": "Idaho murders  latest news: Bryan Kohbergers chilling past comments come to light", "label": "negative"}, {"text": "Idaho murders timeline: What we know about the slayings of four students", "label": "neutral"}, {"text": "What we know so far about the investigation into the Idaho college student murders", "label": "neutral"}, {"text": "Hope Within the Heartbreak: Finding Good News in Ukraine", "label": "positive"}, {"text": "Sunak confirms UK will send tanks to Ukraine ‘to push Russian troops back’", "label": "positive"}, {"text": "Germany opens its 2nd liquefied natural gas terminal", "label": "positive"}, {"text": "BBC PROMS 2022: UKRAINIAN REFUGEE ORCHESTRA AMONG THE LINE-UP", "label": "positive"}, {"text": "It’s time for the international community to address this crisis with greater honesty about the key players and solutions", "label": "positive"}, {"text": "Ask the AI program a question, as millions have in recent weeks, and it will do its best to respond", "label": "positive"}, {"text": "Why tech insiders are so excited about ChatGPT, a chatbot that answers questions and writes essays", "label": "positive"}, {"text": "What’s the point of personal statements when ChatGPT can say it so much better?", "label": "positive"}, {"text": "ChatGPT Has Investors Drooling—but Can It Bring Home the Bacon?", "label": "positive"}, {"text": "From changing your diet to offering refugees a room, here are five things you can do to help the Ukrainian people", "label": "positive"}, {"text": "First commercial drone home delivery service in U.S. takes flight", "label": "positive"}, {"text": "10 INNOVATIVE TECHNOLOGIES WITH POTENTIAL IMPACT FOR BUSINESS", "label": "positive"}, {"text": "From advancements in artificial intelligence technologies to 3D printing, 2018 has been a major year in tech. As cutting-edge technologies reach the market and are integrated, business strategies may evolve as well.", "label": "positive"}, {"text": "We live in an era called the information age. New technology is emerging every day to make life simpler, more advanced and better for everyone. The rate at which technology is evolving is almost exponential today. For business organisations, new technology helps to reduce costs, enhance customer experiences and increase profits.", "label": "positive"}]
+  });
+  for(id in response.body.classifications){
+    console.log(response.body.classifications[id].prediction)
+    return (response.body.classifications[id].prediction)
+  }
+  
+})();
+}

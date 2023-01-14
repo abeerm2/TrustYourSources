@@ -9,7 +9,8 @@ function App() {
       </h1>
       <p className="ourName">By Hack(her)z</p>
       <div className="bar">
-        <div></div>
+        <button className='btn'>Trending on Social Media</button>
+        <button className='btn'>Trending on News Outlets</button>
       </div>
     </div>
   );

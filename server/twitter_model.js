@@ -16,3 +16,5 @@ async function classifySocialMedia(input) {
 
     return response.body.classifications[0];
 }
+
+module.exports = classifySocialMedia;

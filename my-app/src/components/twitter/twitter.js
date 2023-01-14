@@ -28,6 +28,7 @@ function Twitter() {
               {item.map((item)=>(
                 <div key = {item.id} className='tweet-container'>
                     <p>{item.text}</p>
+                    <p>Positive</p>
                  </div>
               ))}
           </div>

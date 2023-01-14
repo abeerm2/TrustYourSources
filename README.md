@@ -10,6 +10,4 @@ Filter results by social media apps and/or media sources to get a comprehensive 
 
 
 
-
-
-TrustYourSources was created at SheHacks+ 7, a hackathon hosted by Western University in January 2023
+### TrustYourSources was created at SheHacks+ 7, a hackathon hosted by Western University in January 2023

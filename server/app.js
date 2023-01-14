@@ -12,7 +12,7 @@ const endpointUrl = "https://api.twitter.com/2/tweets/search/recent";
 const getTweets = async(id) => {
 
     const params = {
-        'query': `${id}`,
+        'query': `${id} lang:en`,
         'tweet.fields': 'created_at',
         'expansions': 'author_id'
     }
@@ -58,7 +58,7 @@ const analyze = async(twitterData) =>
 }
 
 //API route 
-app.get('/tweet/:id', getTweetAnalysis)
+app.get('/api/tweet/:id', getTweetAnalysis)
 app.use(cors());
 app.use(express.json());
 

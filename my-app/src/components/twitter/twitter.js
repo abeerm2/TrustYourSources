@@ -2,6 +2,7 @@ import {React, useEffect, useState} from 'react'
 import './twitter.css'
 function Twitter() {
     const [item, setItem]=useState([]);
+
     function getTweets(){
         fetch('/api/tweet/ukraine')
         .then((res) => res.json())

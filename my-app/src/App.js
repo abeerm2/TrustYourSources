@@ -12,6 +12,10 @@ function App() {
         <button className='btn'>Trending on Social Media</button>
         <button className='btn'>Trending on News Outlets</button>
       </div>
+      <div className='body'>
+          <input className='search' placeholder='Search Value'></input>
+          <button className='searchBtn'>Search!</button>
+      </div>
     </div>
   );
 }

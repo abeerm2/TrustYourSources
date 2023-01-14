@@ -1,20 +1,3 @@
 .app{
   background: #FAFAFA;
 }
-h1{
-  text-align: center;
-}
-.ourName{
-  text-align: center;
-}
-.bar{
-  background-color: #d9d9d9;
-  padding: 10pt;
-  display: flex;
-  align-items: grid;
-}
-.btn{
-  background-color: #daedff;
-  border: none;
-  padding: 5pt;
-}

@@ -1,21 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './components/home/home';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="App-header">
-        Trust Your Sources
-      </h1>
-      <p className="ourName">By Hack(her)z</p>
-      <div className="bar">
-        <button className='btn'>Trending on Social Media</button>
-        <button className='btn'>Trending on News Outlets</button>
-      </div>
-      <div className='body'>
-          <input className='search' placeholder='Search Value'></input>
-          <button className='searchBtn'>Search!</button>
-      </div>
+      <Router>
+        <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

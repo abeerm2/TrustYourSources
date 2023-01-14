@@ -7,6 +7,9 @@ function Home() {
     function openT(){
       nav('/twitter')
     }
+    function openN(){
+      nav('/news')
+    }
     return (
         <div className="App">
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -16,7 +19,7 @@ function Home() {
           <p className="ourName">By Hack(her)z</p>
           <div className="bar">
             <button className='btn' onClick={openT}>Trending on Social Media</button>
-            <button className='btn'>Trending on News Outlets</button>
+            <button className='btn' onClick={openN}>Trending on News Outlets</button>
           </div>
           <div className='body'>
               <input className='search' placeholder='Search Value'></input>

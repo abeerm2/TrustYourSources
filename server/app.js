@@ -74,6 +74,31 @@ app.get('/api/:keyword', async(req,res) => {
     let data = await NewsAPICall(req.params.keyword,userAgent,res);
 });
 
+app.get('/api/topArticlesToday/results', (req,res) => {
+    const options = {
+        host: 'newsapi.org',
+        path: `/v2/top-headlines?language=en&pageSize=10&apiKey=fb4ca3c8afb547a0a3b2b74918d9ae82`,
+        headers: {
+          'User-Agent': req.get('user-agent')
+        }
+    }
+    https.get(options, function (response) {
+        let data;
+        response.on('data', function (chunk) {
+            if (!data) {
+                data = chunk;
+            }
+            else {
+                data += chunk;
+            }
+        });
+        response.on('end', async function () {
+            const newsData = JSON.parse(data);
+            res.send({results: newsData});
+        });
+    });
+});
+
 async function NewsAPICall(keyword, userAgent,res) {
     //const userAgent = req.get('user-agent');
     const options = {

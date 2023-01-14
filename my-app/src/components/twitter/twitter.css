@@ -1,0 +1,47 @@
+h1{
+    text-align: center;
+  }
+  .ourName{
+    text-align: center;
+  }
+  .bar{
+    background-color: #d9d9d9;
+    padding: 10pt;
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    background-color: #daedff;
+    border: none;
+    padding: 5pt;
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  .body{
+      display: flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction: column;
+      margin: 0;
+      height:fit-content
+     
+  }
+  .search{
+    background-color: #fbfcfd;
+    padding: 16px 32px;
+    display:inline;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    color: #a9b8c9;
+    transition: all 240ms ease-out;
+    width: 40%;
+  }
+  .tweet-container{
+    background-color: #daedff;
+    padding:5px;
+    margin:5px;
+    border-radius: 20px;
+    width:800px
+  }

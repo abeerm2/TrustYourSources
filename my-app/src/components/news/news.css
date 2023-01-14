@@ -36,3 +36,10 @@ h1{
     transition: all 240ms ease-out;
     width: 40%;
   }
+  .tweet-container{
+    background-color: #daedff;
+    padding:5px;
+    margin:5px;
+    border-radius: 20px;
+    width:800px
+  }
